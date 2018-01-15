@@ -8,28 +8,28 @@ build-go18-randmat-seq:
 	$(GO18) build -o target/randmat/expertseq/maingo18bin target/randmat/expertseq/main.go
 
 build-go18-outer-par:
-	$GO18 target/outer/expertpar/main.go -o maingo18bin
+	$(GO18) build -o target/outer/expertpar/maingo18bin target/outer/expertpar/main.go
 
 build-go18-outer-seq:
-	$GO18 target/outer/expertseq/main.go -o maingo18bin
+	$(GO18) build -o target/outer/expertseq/maingo18bin target/outer/expertseq/main.go
 
 build-go18-product-par:
-	$GO18 target/product/expertpar/main.go -o maingo18bin
+	$(GO18) build -o target/product/expertpar/maingo18bin target/product/expertpar/main.go
 
 build-go18-product-seq:
-	$GO18 target/product/expertseq/main.go -o maingo18bin
+	$(GO18) build -o target/product/expertseq/maingo18bin target/product/expertseq/main.go
 
 build-go18-thresh-par:
-	$GO18 target/thresh/expertpar/main.go -o maingo18bin
+	$(GO18) build -o target/thresh/expertpar/maingo18bin target/thresh/expertpar/main.go
 
 build-go18-thresh-seq:
-	$GO18 target/thresh/expertseq/main.go -o maingo18bin
+	$(GO18) build -o target/thresh/expertseq/maingo18bin target/thresh/expertseq/main.go
 
 build-go18-winnow-par:
-	$GO18 target/winnow/expertpar/main.go -o maingo18bin
+	$(GO18) build -o target/winnow/expertpar/maingo18bin target/winnow/expertpar/main.go
 
 build-go18-winnow-seq:
-	$GO18 target/winnow/expertseq/main.go -o maingo18bin
+	$(GO18) build -o target/winnow/expertseq/maingo18bin target/winnow/expertseq/main.go
 
 
 build-gccgo7-randmat-par:
