@@ -2,6 +2,7 @@ GO18='/usr/local/go181/go/bin/go'
 GCCGO7='gccgo-7'
 
 BENCHMARK='./benchmark'
+GENERATIONS=1000
 
 
 build-go18-randmat-par:
@@ -38,34 +39,34 @@ all-build-go18: build-go18-randmat-par build-go18-randmat-seq build-go18-outer-p
 
 
 benchmark-go18-randmat-par:
-	$(BENCHMARK) --bin='target/randmat/expertpar/maingo18bin' --generations=10000
+	$(BENCHMARK) --bin='target/randmat/expertpar/maingo18bin' --generations=$(GENERATIONS)
 
 benchmark-go18-randmat-seq:
-	$(BENCHMARK) --bin='target/randmat/expertseq/maingo18bin' --generations=10000
+	$(BENCHMARK) --bin='target/randmat/expertseq/maingo18bin' --generations=$(GENERATIONS)
 
 benchmark-go18-outer-par:
-	$(BENCHMARK) --bin='target/outer/expertpar/maingo18bin' --input='target/outer/expertpar/main.in' --generations=10000
+	$(BENCHMARK) --bin='target/outer/expertpar/maingo18bin' --input='target/outer/expertpar/main.in' --generations=$(GENERATIONS)
 
 benchmark-go18-outer-seq:
-	$(BENCHMARK) --bin='target/outer/expertseq/maingo18bin' --input='target/outer/expertseq/main.in' --generations=10000
+	$(BENCHMARK) --bin='target/outer/expertseq/maingo18bin' --input='target/outer/expertseq/main.in' --generations=$(GENERATIONS)
 
 benchmark-go18-product-par:
-	$(BENCHMARK) --bin='target/product/expertpar/maingo18bin' --input='target/product/expertpar/main.in' --generations=10000
+	$(BENCHMARK) --bin='target/product/expertpar/maingo18bin' --input='target/product/expertpar/main.in' --generations=$(GENERATIONS)
 
 benchmark-go18-product-seq:
-	$(BENCHMARK) --bin='target/product/expertseq/maingo18bin' --input='target/product/expertseq/main.in' --generations=10000
+	$(BENCHMARK) --bin='target/product/expertseq/maingo18bin' --input='target/product/expertseq/main.in' --generations=$(GENERATIONS)
 
 benchmark-go18-thresh-par:
-	$(BENCHMARK) --bin='target/thresh/expertpar/maingo18bin' --input='target/thresh/expertpar/main.in' --generations=10000
+	$(BENCHMARK) --bin='target/thresh/expertpar/maingo18bin' --input='target/thresh/expertpar/main.in' --generations=$(GENERATIONS)
 
 benchmark-go18-thresh-seq:
-	$(BENCHMARK) --bin='target/thresh/expertseq/maingo18bin' --input='target/thresh/expertseq/main.in' --generations=10000
+	$(BENCHMARK) --bin='target/thresh/expertseq/maingo18bin' --input='target/thresh/expertseq/main.in' --generations=$(GENERATIONS)
 
 benchmark-go18-winnow-par:
-	$(BENCHMARK) --bin='target/winnow/expertpar/maingo18bin' --input='target/winnow/expertpar/main.in' --generations=10000
+	$(BENCHMARK) --bin='target/winnow/expertpar/maingo18bin' --input='target/winnow/expertpar/main.in' --generations=$(GENERATIONS)
 
 benchmark-go18-winnow-seq:
-	$(BENCHMARK) --bin='target/winnow/expertseq/maingo18bin' --input='target/winnow/expertseq/main.in' --generations=10000
+	$(BENCHMARK) --bin='target/winnow/expertseq/maingo18bin' --input='target/winnow/expertseq/main.in' --generations=$(GENERATIONS)
 
 all-benchmark-go18: benchmark-go18-randmat-par benchmark-go18-randmat-seq benchmark-go18-outer-par benchmark-go18-outer-seq benchmark-go18-product-par benchmark-go18-product-seq benchmark-go18-winnow-par benchmark-go18-winnow-seq
 
@@ -104,34 +105,34 @@ build-gccgo7-winnow-seq:
 all-build-gccgo7: build-gccgo7-randmat-par build-gccgo7-randmat-seq build-gccgo7-outer-par build-gccgo7-outer-seq build-gccgo7-product-par build-gccgo7-product-seq build-gccgo7-winnow-par build-gccgo7-winnow-seq
 
 benchmark-gccgo7-randmat-par:
-	$(BENCHMARK) --bin='target/randmat/expertpar/maingccgo7bin' --generations=10000
+	$(BENCHMARK) --bin='target/randmat/expertpar/maingccgo7bin' --generations=$(GENERATIONS)
 
 benchmark-gccgo7-randmat-seq:
-	$(BENCHMARK) --bin='target/randmat/expertseq/maingccgo7bin' --generations=10000
+	$(BENCHMARK) --bin='target/randmat/expertseq/maingccgo7bin' --generations=$(GENERATIONS)
 
 benchmark-gccgo7-outer-par:
-	$(BENCHMARK) --bin='target/outer/expertpar/maingccgo7bin' --input='target/outer/expertpar/main.in' --generations=10000
+	$(BENCHMARK) --bin='target/outer/expertpar/maingccgo7bin' --input='target/outer/expertpar/main.in' --generations=$(GENERATIONS)
 
 benchmark-gccgo7-outer-seq:
-	$(BENCHMARK) --bin='target/outer/expertseq/maingccgo7bin' --input='target/outer/expertseq/main.in' --generations=10000
+	$(BENCHMARK) --bin='target/outer/expertseq/maingccgo7bin' --input='target/outer/expertseq/main.in' --generations=$(GENERATIONS)
 
 benchmark-gccgo7-product-par:
-	$(BENCHMARK) --bin='target/product/expertpar/maingccgo7bin' --input='target/product/expertpar/main.in' --generations=10000
+	$(BENCHMARK) --bin='target/product/expertpar/maingccgo7bin' --input='target/product/expertpar/main.in' --generations=$(GENERATIONS)
 
 benchmark-gccgo7-product-seq:
-	$(BENCHMARK) --bin='target/product/expertseq/maingccgo7bin' --input='target/product/expertseq/main.in' --generations=10000
+	$(BENCHMARK) --bin='target/product/expertseq/maingccgo7bin' --input='target/product/expertseq/main.in' --generations=$(GENERATIONS)
 
 benchmark-gccgo7-thresh-par:
-	$(BENCHMARK) --bin='target/thresh/expertpar/maingccgo7bin' --input='target/thresh/expertpar/main.in' --generations=10000
+	$(BENCHMARK) --bin='target/thresh/expertpar/maingccgo7bin' --input='target/thresh/expertpar/main.in' --generations=$(GENERATIONS)
 
 benchmark-gccgo7-thresh-seq:
-	$(BENCHMARK) --bin='target/thresh/expertseq/maingccgo7bin' --input='target/thresh/expertseq/main.in' --generations=10000
+	$(BENCHMARK) --bin='target/thresh/expertseq/maingccgo7bin' --input='target/thresh/expertseq/main.in' --generations=$(GENERATIONS)
 
 benchmark-gccgo7-winnow-par:
-	$(BENCHMARK) --bin='target/winnow/expertpar/maingccgo7bin' --input='target/winnow/expertpar/main.in' --generations=10000
+	$(BENCHMARK) --bin='target/winnow/expertpar/maingccgo7bin' --input='target/winnow/expertpar/main.in' --generations=$(GENERATIONS)
 
 benchmark-gccgo7-winnow-seq:
-	$(BENCHMARK) --bin='target/winnow/expertseq/maingccgo7bin' --input='target/winnow/expertseq/main.in' --generations=10000
+	$(BENCHMARK) --bin='target/winnow/expertseq/maingccgo7bin' --input='target/winnow/expertseq/main.in' --generations=$(GENERATIONS)
 
 all-benchmark-go18: benchmark-gccgo7-randmat-par benchmark-gccgo7-randmat-seq benchmark-gccgo7-outer-par benchmark-gccgo7-outer-seq benchmark-gccgo7-product-par benchmark-gccgo7-product-seq benchmark-gccgo7-winnow-par benchmark-gccgo7-winnow-seq
 
@@ -169,33 +170,33 @@ build-gccgo7opt-winnow-seq:
 all-build-gccgo7opt: build-gccgo7opt-randmat-par build-gccgo7opt-randmat-seq build-gccgo7opt-outer-par build-gccgo7opt-outer-seq build-gccgo7opt-product-par build-gccgo7opt-product-seq build-gccgo7opt-winnow-par build-gccgo7opt-winnow-seq
 
 benchmark-gccgo7opt-randmat-par:
-	$(BENCHMARK) --bin='target/randmat/expertpar/maingccgo7optbin' --generations=10000
+	$(BENCHMARK) --bin='target/randmat/expertpar/maingccgo7optbin' --generations=$(GENERATIONS)
 
 benchmark-gccgo7opt-randmat-seq:
-	$(BENCHMARK) --bin='target/randmat/expertseq/maingccgo7optbin' --generations=10000
+	$(BENCHMARK) --bin='target/randmat/expertseq/maingccgo7optbin' --generations=$(GENERATIONS)
 
 benchmark-gccgo7opt-outer-par:
-	$(BENCHMARK) --bin='target/outer/expertpar/maingccgo7optbin' --input='target/outer/expertpar/main.in' --generations=10000
+	$(BENCHMARK) --bin='target/outer/expertpar/maingccgo7optbin' --input='target/outer/expertpar/main.in' --generations=$(GENERATIONS)
 
 benchmark-gccgo7opt-outer-seq:
-	$(BENCHMARK) --bin='target/outer/expertseq/maingccgo7optbin' --input='target/outer/expertseq/main.in' --generations=10000
+	$(BENCHMARK) --bin='target/outer/expertseq/maingccgo7optbin' --input='target/outer/expertseq/main.in' --generations=$(GENERATIONS)
 
 benchmark-gccgo7opt-product-par:
-	$(BENCHMARK) --bin='target/product/expertpar/maingccgo7optbin' --input='target/product/expertpar/main.in' --generations=10000
+	$(BENCHMARK) --bin='target/product/expertpar/maingccgo7optbin' --input='target/product/expertpar/main.in' --generations=$(GENERATIONS)
 
 benchmark-gccgo7opt-product-seq:
-	$(BENCHMARK) --bin='target/product/expertseq/maingccgo7optbin' --input='target/product/expertseq/main.in' --generations=10000
+	$(BENCHMARK) --bin='target/product/expertseq/maingccgo7optbin' --input='target/product/expertseq/main.in' --generations=$(GENERATIONS)
 
 benchmark-gccgo7opt-thresh-par:
-	$(BENCHMARK) --bin='target/thresh/expertpar/maingccgo7optbin' --input='target/thresh/expertpar/main.in' --generations=10000
+	$(BENCHMARK) --bin='target/thresh/expertpar/maingccgo7optbin' --input='target/thresh/expertpar/main.in' --generations=$(GENERATIONS)
 
 benchmark-gccgo7opt-thresh-seq:
-	$(BENCHMARK) --bin='target/thresh/expertseq/maingccgo7optbin' --input='target/thresh/expertseq/main.in' --generations=10000
+	$(BENCHMARK) --bin='target/thresh/expertseq/maingccgo7optbin' --input='target/thresh/expertseq/main.in' --generations=$(GENERATIONS)
 
 benchmark-gccgo7opt-winnow-par:
-	$(BENCHMARK) --bin='target/winnow/expertpar/maingccgo7optbin' --input='target/winnow/expertpar/main.in' --generations=10000
+	$(BENCHMARK) --bin='target/winnow/expertpar/maingccgo7optbin' --input='target/winnow/expertpar/main.in' --generations=$(GENERATIONS)
 
 benchmark-gccgo7opt-winnow-seq:
-	$(BENCHMARK) --bin='target/winnow/expertseq/maingccgo7optbin' --input='target/winnow/expertseq/main.in' --generations=10000
+	$(BENCHMARK) --bin='target/winnow/expertseq/maingccgo7optbin' --input='target/winnow/expertseq/main.in' --generations=$(GENERATIONS)
 
 all-benchmark-go18: benchmark-gccgo7opt-randmat-par benchmark-gccgo7opt-randmat-seq benchmark-gccgo7opt-outer-par benchmark-gccgo7opt-outer-seq benchmark-gccgo7opt-product-par benchmark-gccgo7opt-product-seq benchmark-gccgo7opt-winnow-par benchmark-gccgo7opt-winnow-seq
