@@ -7,24 +7,27 @@ import (
 	"os"
 	"os/exec"
 	"time"
+
+	"github.com/montanaflynn/stats"
 )
 
 func main() {
 	generations := flag.Int("generations", 1000, "generations=1000")
-	pathBin := flag.String("bin", "target/randmat/expertpar/main-18", "bin='/path/bin'")
-	pathInput := flag.String("input", "target/randmat/expertpar/main.in", "input='/path/input'")
+	pathBin := flag.String("bin", "", "bin='/path/bin'")
+	pathInput := flag.String("input", "", "input='/path/input'")
 
 	flag.Parse()
 
 	fmt.Println(*generations, *pathBin, *pathInput)
 
-	var result float64
+	var results []float64
 
 	for i := 0; i < *generations; i++ {
-		result += runner(*pathBin, *pathInput)
+		results = append(results, runner(*pathBin, *pathInput))
 	}
 
-	log.Println(result / float64(*generations))
+	median, _ := stats.Median(results)
+	fmt.Println(median)
 }
 
 func runner(pathBin string, pathInput string) float64 {

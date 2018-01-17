@@ -1,0 +1,13 @@
+{
+	"comment": "",
+	"ignore": "test",
+	"package": [
+		{
+			"checksumSHA1": "+/E1N8iDaHig2Gk4Y6Lhj1lKGco=",
+			"path": "github.com/montanaflynn/stats",
+			"revision": "1bf9dbcd8cbe1fdb75add3785b1d4a9a646269ab",
+			"revisionTime": "2017-12-01T20:20:39Z"
+		}
+	],
+	"rootPath": "github.com/raninho/goexperiment"
+}

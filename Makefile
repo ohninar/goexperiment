@@ -1,7 +1,7 @@
 GO18='/usr/local/go181/go/bin/go'
 GCCGO7='gccgo-7'
 
-BENCHMARK='benchmark'
+BENCHMARK='./benchmark'
 
 build-go18-randmat-par:
 	$(GO18) build -o target/randmat/expertpar/maingo18bin target/randmat/expertpar/main.go
