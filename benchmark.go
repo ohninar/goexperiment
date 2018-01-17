@@ -1,11 +1,12 @@
 package main
 
 import (
+	"flag"
+	"fmt"
 	"log"
 	"os"
 	"os/exec"
 	"time"
-	"flag"
 )
 
 func main() {
@@ -14,6 +15,8 @@ func main() {
 	pathInput := flag.String("input", "target/randmat/expertpar/main.in", "input='/path/input'")
 
 	flag.Parse()
+
+	fmt.Println(*generations, *pathBin, *pathInput)
 
 	var result float64
 
@@ -27,8 +30,13 @@ func main() {
 func runner(pathBin string, pathInput string) float64 {
 	var elapsed time.Duration
 
+	command := pathBin + " < " + pathInput
+	if pathInput == "" {
+		command = pathBin
+	}
+
 	start := time.Now()
-	cmd := exec.Command("bash", "-c", pathBin + " < " + pathInput)
+	cmd := exec.Command("bash", "-c", command)
 	elapsed = time.Since(start)
 
 	_, err := cmd.Output()
