@@ -27,7 +27,7 @@ func main() {
 	}
 
 	median, _ := stats.Median(results)
-	fmt.Println(median)
+	fmt.Printf("Mediana: %.10f", median)
 }
 
 func runner(pathBin string, pathInput string) float64 {

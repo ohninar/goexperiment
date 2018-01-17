@@ -36,10 +36,10 @@ build-go18-winnow-seq:
 all-build-go18: build-go18-randmat-par build-go18-randmat-seq build-go18-outer-par build-go18-outer-seq build-go18-product-par build-go18-product-seq build-go18-winnow-par build-go18-winnow-seq
 
 benchmark-go18-randmat-par:
-	$(BENCHMARK) --bin='target/randmat/expertpar/maingo18bin'
+	$(BENCHMARK) --bin='target/randmat/expertpar/maingo18bin' --generations=10000
 
 benchmark-go18-randmat-seq:
-	$(BENCHMARK) --bin='target/randmat/expertseq/maingo18bin'
+	$(BENCHMARK) --bin='target/randmat/expertseq/maingo18bin' --generations=10000
 
 benchmark-go18-outer-par:
 	$(BENCHMARK) --bin='target/outer/expertpar/maingo18bin' --input='target/outer/expertpar/main.in'
