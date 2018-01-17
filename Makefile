@@ -1,6 +1,8 @@
 GO18='/usr/local/go181/go/bin/go'
 GCCGO7='gccgo-7'
 
+BENCHMARK='benchmark'
+
 build-go18-randmat-par:
 	$(GO18) build -o target/randmat/expertpar/maingo18bin target/randmat/expertpar/main.go
 
@@ -32,6 +34,38 @@ build-go18-winnow-seq:
 	$(GO18) build -o target/winnow/expertseq/maingo18bin target/winnow/expertseq/main.go
 
 all-build-go18: build-go18-randmat-par build-go18-randmat-seq build-go18-outer-par build-go18-outer-seq build-go18-product-par build-go18-product-seq build-go18-winnow-par build-go18-winnow-seq
+
+benchmark-go18-randmat-par:
+	$(BENCHMARK) --bin='target/randmat/expertpar/maingo18bin'
+
+benchmark-go18-randmat-seq:
+	$(BENCHMARK) --bin='target/randmat/expertseq/maingo18bin'
+
+benchmark-go18-outer-par:
+	$(BENCHMARK) --bin='target/outer/expertpar/maingo18bin' --input='target/outer/expertpar/main.in'
+
+benchmark-go18-outer-seq:
+	$(BENCHMARK) --bin='target/outer/expertseq/maingo18bin' --input='target/outer/expertseq/main.in'
+
+benchmark-go18-product-par:
+	$(BENCHMARK) --bin='target/product/expertpar/maingo18bin' --input='target/product/expertpar/main.in'
+
+benchmark-go18-product-seq:
+	$(BENCHMARK) --bin='target/product/expertseq/maingo18bin' --input='target/product/expertseq/main.in'
+
+benchmark-go18-thresh-par:
+	$(BENCHMARK) --bin='target/thresh/expertpar/maingo18bin' --input='target/thresh/expertpar/main.in'
+
+benchmark-go18-thresh-seq:
+	$(BENCHMARK) --bin='target/thresh/expertseq/maingo18bin' --input='target/thresh/expertseq/main.in'
+
+benchmark-go18-winnow-par:
+	$(BENCHMARK) --bin='target/winnow/expertpar/maingo18bin' --input='target/winnow/expertpar/main.in'
+
+benchmark-go18-winnow-seq:
+	$(BENCHMARK) --bin='target/winnow/expertseq/maingo18bin' --input='target/winnow/expertseq/main.in'
+
+all-benchmark-go18: benchmark-go18-randmat-par benchmark-go18-randmat-seq benchmark-go18-outer-par benchmark-go18-outer-seq benchmark-go18-product-par benchmark-go18-product-seq benchmark-go18-winnow-par benchmark-go18-winnow-seq
 
 build-gccgo7-randmat-par:
 	$(GCCGO7) target/randmat/expertpar/main.go -o target/randmat/expertpar/maingccgo7bin
