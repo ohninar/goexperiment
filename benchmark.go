@@ -20,14 +20,42 @@ func main() {
 
 	fmt.Println(*generations, *pathBin, *pathInput)
 
+	var elapsed time.Duration
 	var results []float64
 
+	start := time.Now()
+	fmt.Println("Inicio:", start)
+
 	for i := 0; i < *generations; i++ {
-		results = append(results, runner(*pathBin, *pathInput))
+		results = append(results, runner2(*pathBin, *pathInput))
 	}
 
+	elapsed = time.Since(start)
+	theEnd := time.Now()
+	fmt.Println("   Fim:", theEnd)
+	fmt.Println("  Diff:", elapsed)
+
 	median, _ := stats.Median(results)
-	fmt.Printf("Mediana: %.10f", median)
+	fmt.Printf("\n Mediana: %.10f", median)
+}
+
+func runner2(pathBin string, pathInput string) float64 {
+	var elapsed time.Duration
+
+	command := pathBin + " < " + pathInput
+	if pathInput == "" {
+		command = pathBin
+	}
+
+	start := time.Now()
+	_, err := exec.Command("bash", "-c", command).Output()
+	if err != nil {
+		log.Println(err.Error())
+		os.Exit(1)
+	}
+	elapsed = time.Since(start)
+
+	return elapsed.Seconds()
 }
 
 func runner(pathBin string, pathInput string) float64 {
