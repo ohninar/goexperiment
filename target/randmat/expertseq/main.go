@@ -14,6 +14,10 @@ package main
 import (
 	"flag"
 	"fmt"
+	"os"
+	"log"
+	"runtime"
+	"runtime/pprof"
 )
 
 type ByteMatrix struct {
@@ -76,4 +80,14 @@ func main() {
 		}
 		fmt.Printf("\n")
 	}
+
+	f, err := os.Create("profile")
+	if err != nil {
+		log.Fatal("could not create memory profile: ", err)
+	}
+	runtime.GC() // get up-to-date statistics
+	if err := pprof.WriteHeapProfile(f); err != nil {
+		log.Fatal("could not write memory profile: ", err)
+	}
+	f.Close()
 }
