@@ -1,5 +1,6 @@
 GO18='/usr/local/go181/go/bin/go'
 GCCGO7='gccgo-7'
+OPTALGGEN='-faggressive-loop-optimizations -falign-jumps -falign-labels -falign-loops -fauto-inc-dec -fbranch-count-reg -fbranch-probabilities -fbranch-target-load-optimize -fbtr-bb-exclusive -fcaller-saves -fcombine-stack-adjustments -fcompare-elim -fcse-follow-jumps -fcx-limited-range -fdelete-null-pointer-checks -fdevirtualize -fdse -ffinite-math-only -fforward-propagate -ffp-contract=on -ffp-contract=fast -fgcse -fgcse-sm -fgraphite -fhandle-exceptions -fhoist-adjacent-loads -finline -finline-small-functions -fipa-cp-alignment -fipa-pta -fipa-ra -fipa-reference -fipa-sra -fira-algorithm=priority -fira-hoist-pressure -fira-loop-pressure -fira-region=one -fira-share-save-slots -fira-share-spill-slots -fisolate-erroneous-paths-dereference -fjump-tables -flifetime-dse -flifetime-dse=1 -flive-range-shrinkage -floop-parallelize-all -flra-remat -fmath-errno -fmodulo-sched -fmodulo-sched-allow-regmoves -fmove-loop-invariants -fnothrow-opt -fopt-info -foptimize-sibling-calls -fpack-struct -fpartial-inlining -fpeephole -fpeephole2 -fplt -freciprocal-math -freorder-blocks-algorithm=simple -freorder-blocks-algorithm=stc -freorder-functions -frerun-cse-after-loop -freschedule-modulo-scheduled-loops -fsched-critical-path-heuristic -fsched-spec -fsched-spec-insn-heuristic -fsched-spec-load -fsched-stalled-insns-dep -fsched-stalled-insns=1 -fsched2-use-superblocks -fschedule-insns -fsection-anchors -fsel-sched-pipelining -fsel-sched-reschedule-pipelined -fselective-scheduling'
 
 BENCHMARK='./benchmark'
 GENERATIONS=1000
@@ -200,3 +201,67 @@ benchmark-gccgo7opt-winnow-seq:
 	$(BENCHMARK) --bin='target/winnow/expertseq/maingccgo7optbin' --input='target/winnow/expertseq/main.in' --generations=$(GENERATIONS)
 
 all-benchmark-go18: benchmark-gccgo7opt-randmat-par benchmark-gccgo7opt-randmat-seq benchmark-gccgo7opt-outer-par benchmark-gccgo7opt-outer-seq benchmark-gccgo7opt-product-par benchmark-gccgo7opt-product-seq benchmark-gccgo7opt-winnow-par benchmark-gccgo7opt-winnow-seq
+
+build-gccgo7optAlgGen-randmat-par:
+	$(GCCGO7) $(OPTALGGEN) target/randmat/expertpar/main.go -o target/randmat/expertpar/maingccgo7optalggenbin
+
+build-gccgo7optAlgGen-randmat-seq:
+	$(GCCGO7) $(OPTALGGEN) target/randmat/expertseq/main.go -o target/randmat/expertseq/maingccgo7optalggenbin
+
+build-gccgo7optAlgGen-outer-par:
+	$(GCCGO7) $(OPTALGGEN) target/outer/expertpar/main.go -o target/outer/expertpar/maingccgo7optalggenbin
+
+build-gccgo7optAlgGen-outer-seq:
+	$(GCCGO7) $(OPTALGGEN) target/outer/expertseq/main.go -o target/outer/expertseq/maingccgo7optalggenbin
+
+build-gccgo7optAlgGen-product-par:
+	$(GCCGO7) $(OPTALGGEN) target/product/expertpar/main.go -o target/product/expertpar/maingccgo7optalggenbin
+
+build-gccgo7optAlgGen-product-seq:
+	$(GCCGO7) $(OPTALGGEN) target/product/expertseq/main.go -o target/product/expertseq/maingccgo7optalggenbin
+
+build-gccgo7optAlgGen-thresh-par:
+	$(GCCGO7) $(OPTALGGEN) target/thresh/expertpar/main.go -o target/thresh/expertpar/maingccgo7optalggenbin
+
+build-gccgo7optAlgGen-thresh-seq:
+	$(GCCGO7) $(OPTALGGEN) target/thresh/expertseq/main.go -o target/thresh/expertseq/maingccgo7optalggenbin
+
+build-gccgo7optAlgGen-winnow-par:
+	$(GCCGO7) $(OPTALGGEN) target/winnow/expertpar/main.go -o target/winnow/expertpar/maingccgo7optalggenbin
+
+build-gccgo7optAlgGen-winnow-seq:
+	$(GCCGO7) $(OPTALGGEN) target/winnow/expertseq/main.go -o target/winnow/expertseq/maingccgo7optalggenbin
+
+all-build-gccgo7opt: build-gccgo7optAlgGen-randmat-par build-gccgo7optAlgGen-randmat-seq build-gccgo7optAlgGen-outer-par build-gccgo7optAlgGen-outer-seq build-gccgo7optAlgGen-product-par build-gccgo7optAlgGen-product-seq build-gccgo7optAlgGen-winnow-par build-gccgo7optAlgGen-winnow-seq
+
+benchmark-gccgo7optAlgGen-randmat-par:
+	$(BENCHMARK) --bin='target/randmat/expertpar/maingccgo7optalggenbin' --generations=$(GENERATIONS)
+
+benchmark-gccgo7optAlgGen-randmat-seq:
+	$(BENCHMARK) --bin='target/randmat/expertseq/maingccgo7optalggenbin' --generations=$(GENERATIONS)
+
+benchmark-gccgo7optAlgGen-outer-par:
+	$(BENCHMARK) --bin='target/outer/expertpar/maingccgo7optalggenbin' --input='target/outer/expertpar/main.in' --generations=$(GENERATIONS)
+
+benchmark-gccgo7optAlgGen-outer-seq:
+	$(BENCHMARK) --bin='target/outer/expertseq/maingccgo7optalggenbin' --input='target/outer/expertseq/main.in' --generations=$(GENERATIONS)
+
+benchmark-gccgo7optAlgGen-product-par:
+	$(BENCHMARK) --bin='target/product/expertpar/maingccgo7optalggenbin' --input='target/product/expertpar/main.in' --generations=$(GENERATIONS)
+
+benchmark-gccgo7optAlgGen-product-seq:
+	$(BENCHMARK) --bin='target/product/expertseq/maingccgo7optalggenbin' --input='target/product/expertseq/main.in' --generations=$(GENERATIONS)
+
+benchmark-gccgo7optAlgGen-thresh-par:
+	$(BENCHMARK) --bin='target/thresh/expertpar/maingccgo7optalggenbin' --input='target/thresh/expertpar/main.in' --generations=$(GENERATIONS)
+
+benchmark-gccgo7optAlgGen-thresh-seq:
+	$(BENCHMARK) --bin='target/thresh/expertseq/maingccgo7optalggenbin' --input='target/thresh/expertseq/main.in' --generations=$(GENERATIONS)
+
+benchmark-gccgo7optAlgGen-winnow-par:
+	$(BENCHMARK) --bin='target/winnow/expertpar/maingccgo7optalggenbin' --input='target/winnow/expertpar/main.in' --generations=$(GENERATIONS)
+
+benchmark-gccgo7optAlgGen-winnow-seq:
+	$(BENCHMARK) --bin='target/winnow/expertseq/maingccgo7optalggenbin' --input='target/winnow/expertseq/main.in' --generations=$(GENERATIONS)
+
+all-benchmark-go18: benchmark-gccgo7optAlgGen-randmat-par benchmark-gccgo7optAlgGen-randmat-seq benchmark-gccgo7optAlgGen-outer-par benchmark-gccgo7optAlgGen-outer-seq benchmark-gccgo7optAlgGen-product-par benchmark-gccgo7optAlgGen-product-seq benchmark-gccgo7optAlgGen-winnow-par benchmark-gccgo7optAlgGen-winnow-seq
