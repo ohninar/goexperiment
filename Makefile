@@ -15,8 +15,14 @@ build-go18-randmat-seq:
 build-go18-outer-par:
 	$(GO18) build -o target/outer/expertpar/maingo18bin target/outer/expertpar/main.go
 
+build-go18-outer-par-profile:
+	$(GO18) build -o target/outer/expertparprofile/maingo18binprofile target/outer/expertparprofile/main.go
+
 build-go18-outer-seq:
 	$(GO18) build -o target/outer/expertseq/maingo18bin target/outer/expertseq/main.go
+
+build-go18-outer-seq-profile:
+	$(GO18) build -o target/outer/expertseqprofile/maingo18binprofile target/outer/expertseqprofile/main.go
 
 build-go18-product-par:
 	$(GO18) build -o target/product/expertpar/maingo18bin target/product/expertpar/main.go
@@ -82,8 +88,14 @@ build-gccgo7-randmat-seq:
 build-gccgo7-outer-par:
 	$(GCCGO7) target/outer/expertpar/main.go -o target/outer/expertpar/maingccgo7bin
 
+build-gccgo7-outer-par-profile:
+	$(GCCGO7) target/outer/expertparprofile/main.go -o target/outer/expertparprofile/maingccgo7binprofile
+
 build-gccgo7-outer-seq:
 	$(GCCGO7) target/outer/expertseq/main.go -o target/outer/expertseq/maingccgo7bin
+
+build-gccgo7-outer-seq-profile:
+	$(GCCGO7) target/outer/expertseqprofile/main.go -o target/outer/expertseqprofile/maingccgo7binprofile
 
 build-gccgo7-product-par:
 	$(GCCGO7) target/product/expertpar/main.go -o target/product/expertpar/maingccgo7bin
