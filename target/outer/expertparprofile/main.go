@@ -16,10 +16,10 @@ package main
 import (
 	"flag"
 	"fmt"
-	"math"
-	"runtime"
-	"os"
 	"log"
+	"math"
+	"os"
+	"runtime"
 	"runtime/pprof"
 )
 
@@ -87,7 +87,7 @@ func read_integer() int {
 	var value int
 	for true {
 		var read, _ = fmt.Scanf("%d", &value)
-		log.Println(read)
+		//log.Println(read)
 		if read == 1 {
 			break
 		}
@@ -108,7 +108,7 @@ func main() {
 
 	flag.Parse()
 
-	f, err := os.Create("cpuprofile.txt")
+	/*f, err := os.Create("cpuprofile.txt")
 	if err != nil {
 		log.Fatal("could not create CPU profile: ", err)
 	}
@@ -116,47 +116,81 @@ func main() {
 		log.Fatal("could not start CPU profile: ", err)
 	}
 	defer pprof.StopCPUProfile()
-	log.Println("depois do cpu profile")
-
-	nelts = read_integer()
-  	points = make ([]Point, nelts)
-
-	if !*is_bench {
-		read_vector_of_points(nelts)
-	}
-
-	log.Println("antes do outer")
-
-	matrix, vector := Outer(points[0:nelts], nelts)
-
-	for ii := 0; ii < 1000; ii++ {
-		log.Println(ii)
-
-		if !*is_bench {
-			fmt.Printf("%d %d\n", nelts, nelts)
-			for _, row := range matrix {
-				for _, elem := range row {
-					fmt.Printf("%g ", elem)
-				}
-				fmt.Printf("\n")
-			}
-			fmt.Printf("\n")
-
-			fmt.Printf("%d\n", nelts)
-			for i := 0; i < nelts; i++ {
-				fmt.Printf("%g ", vector[i])
-			}
-			fmt.Printf("\n")
-		}
-	}
+	log.Println("depois do cpu profile")*/
 
 	fi, err := os.Create("memprofile.txt")
 	if err != nil {
 		log.Fatal("could not create memory profile: ", err)
 	}
-	runtime.GC() // get up-to-date statistics
-	if err := pprof.WriteHeapProfile(fi); err != nil {
-		log.Fatal("could not write memory profile: ", err)
-	}
+
+	//for ii := 0; ii < 100000; ii++ {
+
+		nelts = read_integer()
+		points = make([]Point, nelts)
+
+		if !*is_bench {
+			read_vector_of_points(nelts)
+		}
+
+		matrix, vector := Outer(points[0:nelts], nelts)
+
+		if !*is_bench {
+			//fmt.Printf("%d %d\n", nelts, nelts)
+			for _, row := range matrix {
+				for _, elem := range row {
+					if elem != 0.0 {
+
+					}
+				}
+				//fmt.Printf("\n")
+			}
+			//fmt.Printf("\n")
+
+			//fmt.Printf("%d\n", nelts)
+			for i := 0; i < nelts; i++ {
+				if vector[i] != 0.0 {
+
+				}
+			}
+			//fmt.Printf("\n")
+		}
+	//}
+	runtime.GC()
+	//pprof.WriteHeapProfile(fi)
+	//pprof.
+	pprof.Lookup("heap").WriteTo(fi, 1)
 	fi.Close()
+
+	s := new(runtime.MemStats)
+	runtime.ReadMemStats(s)
+	fmt.Println("\n# runtime.MemStats")
+	fmt.Println("# Alloc = %d", s.Alloc)
+	fmt.Println("# TotalAlloc = %d", s.TotalAlloc)
+	fmt.Println("# Sys = %d", s.Sys)
+	fmt.Println("# Lookups = %d", s.Lookups)
+	fmt.Println("# Mallocs = %d", s.Mallocs)
+	fmt.Println("# Frees = %d", s.Frees)
+
+	fmt.Println("# HeapAlloc = %d", s.HeapAlloc)
+	fmt.Println("# HeapSys = %d", s.HeapSys)
+	fmt.Println("# HeapIdle = %d", s.HeapIdle)
+	fmt.Println("# HeapInuse = %d", s.HeapInuse)
+	fmt.Println("# HeapReleased = %d", s.HeapReleased)
+	fmt.Println("# HeapObjects = %d", s.HeapObjects)
+
+	fmt.Println("# Stack = %d / %d", s.StackInuse, s.StackSys)
+	fmt.Println("# MSpan = %d / %d", s.MSpanInuse, s.MSpanSys)
+	fmt.Println("# MCache = %d / %d", s.MCacheInuse, s.MCacheSys)
+	fmt.Println("# BuckHashSys = %d", s.BuckHashSys)
+	fmt.Println("# GCSys = %d", s.GCSys)
+	fmt.Println("# OtherSys = %d", s.OtherSys)
+
+	fmt.Println("# NextGC = %d", s.NextGC)
+	fmt.Println( "# LastGC = %d", s.LastGC)
+	fmt.Println( "# PauseNs = %d", s.PauseNs)
+	fmt.Println( "# PauseEnd = %d", s.PauseEnd)
+	fmt.Println( "# NumGC = %d", s.NumGC)
+	fmt.Println( "# NumForcedGC = %d", s.NumForcedGC)
+	fmt.Println( "# GCCPUFraction = %v", s.GCCPUFraction)
+	fmt.Println("# DebugGC = %v", s.DebugGC)
 }
