@@ -1,0 +1,36 @@
+heap profile: 1: 16384 [1: 16384] @ heap/1048576
+1: 16384 [1: 16384] @ 0x4bb6bf 0x4b9ebb 0x4c4ad6 0x4c487e 0x42ae3d 0x453b11
+#	0x4bb6be	runtime/pprof.writeHeap+0x8e		/usr/local/go190/go/src/runtime/pprof/pprof.go:491
+#	0x4b9eba	runtime/pprof.(*Profile).WriteTo+0x3aa	/usr/local/go190/go/src/runtime/pprof/pprof.go:310
+#	0x4c4ad5	main.SaveMemProfile+0x1d5		/home/raniere/go/src/github.com/raninho/goexperiment/target/thresh/expertpar/main.go:179
+#	0x4c487d	main.main+0x69d				/home/raniere/go/src/github.com/raninho/goexperiment/target/thresh/expertpar/main.go:161
+#	0x42ae3c	runtime.main+0x20c			/usr/local/go190/go/src/runtime/proc.go:185
+
+
+# runtime.MemStats
+# Alloc = 88744
+# TotalAlloc = 100104
+# Sys = 3574008
+# Lookups = 5
+# Mallocs = 356
+# Frees = 78
+# HeapAlloc = 88744
+# HeapSys = 720896
+# HeapIdle = 327680
+# HeapInuse = 393216
+# HeapReleased = 0
+# HeapObjects = 278
+# Stack = 327680 / 327680
+# MSpan = 8360 / 16384
+# MCache = 6944 / 16384
+# BuckHashSys = 1442550
+# GCSys = 241664
+# OtherSys = 808450
+# NextGC = 4194304
+# LastGC = 1519304965804711230
+# PauseNs = [105476 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+# PauseEnd = [1519304965804711230 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+# NumGC = 1
+# NumForcedGC = 1
+# GCCPUFraction = 0.04722103924687543
+# DebugGC = false

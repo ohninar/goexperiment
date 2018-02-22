@@ -1,0 +1,48 @@
+heap profile: 2: 7680 [2: 7680] @ heap/1048576
+1: 5376 [1: 5376] @ 0x7feae527ac55 0x7feae5253404 0x7feae525350c 0x7feae5254524 0x7feae5254740 0x7feae525487a 0x7feae5249e05 0x7feae524b2f5 0x7feae524b5f4 0x7feae50fdb55 0x5600b321cafb 0x7feae4ea8b5a
+#	0x7feae5253403	regexp_syntax.inst.pN22_regexp_syntax.compiler+0x123	../../../src/libgo/go/regexp/syntax/compile.go:173
+#	0x7feae525350b	regexp_syntax.cap.pN22_regexp_syntax.compiler+0x2b	../../../src/libgo/go/regexp/syntax/compile.go:188
+#	0x7feae5254523	regexp_syntax.compile.pN22_regexp_syntax.compiler+0x2b3	../../../src/libgo/go/regexp/syntax/compile.go:139
+#	0x7feae525473f	regexp_syntax.compile.pN22_regexp_syntax.compiler+0x4cf	../../../src/libgo/go/regexp/syntax/compile.go:156
+#	0x7feae5254879	regexp_syntax.Compile+0x59				../../../src/libgo/go/regexp/syntax/compile.go:83
+#	0x7feae5249e04	regexp.compile+0xd4					../../../src/libgo/go/regexp/regexp.go:175
+#	0x7feae524b2f4	regexp.Compile+0x24					../../../src/libgo/go/regexp/regexp.go:132
+#	0x7feae524b5f3	regexp.MustCompile+0x33					../../../src/libgo/go/regexp/regexp.go:235
+#	0x7feae50fdb54	internal_pprof_profile..import+0x3d4			../../../src/libgo/go/internal/pprof/profile/legacy_profile.go:25
+#	0x5600b321cafa	__go_init_main+0x8a					target/randmat/expertseq/main.go:12
+#	0x7feae4ea8b59	runtime_main+0xb9					../../../src/libgo/runtime/proc.c:584
+
+1: 2304 [1: 2304] @ 0x7feae527b0b0 0x7feae4ea858c 0x7feae5286e6e 0x7feae5286e6e 0x7feae4ea7bcb 0x5600b321a840 0x7feae3cf41c1 0x5600b321a89a
+#	0x7feae527b0af	runtime.allocg+0x1f		../../../src/libgo/go/runtime/stubs.go:514
+#	0x7feae4ea858b	runtime.malg+0x4b		../../../src/libgo/runtime/proc.c:1349
+#	0x7feae5286e6d	runtime.mpreinit+0x9d		../../../src/libgo/go/runtime/os_gccgo.go:17
+#	0x7feae5286e6d	runtime.mcommoninit+0x9d	../../../src/libgo/go/runtime/proc.go:241
+#	0x7feae4ea7bca	runtime_schedinit+0x9a		../../../src/libgo/runtime/proc.c:490
+#	0x0
+#	0x0
+#	0x0
+
+
+# runtime.MemStats
+# Alloc = 230256
+# TotalAlloc = 318600
+# Sys = 3938552
+# Lookups = 5
+# Mallocs = 2511
+# Frees = 1191
+# HeapAlloc = 230256
+# HeapSys = 1048576
+# HeapIdle = 450560
+# HeapInuse = 598016
+# HeapReleased = 0
+# HeapObjects = 1320
+# Stack = 0 / 0
+# MSpan = 7680 / 16384
+# MCache = 2200 / 16384
+# BuckHashSys = 1441288
+# GCSys = 1114112
+# OtherSys = 301808
+# NextGC = 376448
+# PauseNs = [1512948 1202899 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+# NumGC = 2
+# DebugGC = false

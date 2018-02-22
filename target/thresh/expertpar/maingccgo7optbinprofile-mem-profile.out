@@ -1,0 +1,35 @@
+heap profile: 1: 2304 [1: 2304] @ heap/1048576
+1: 2304 [1: 2304] @ 0x7f9a1d7230b0 0x7f9a1d35058c 0x7f9a1d72ee6e 0x7f9a1d72ee6e 0x7f9a1d34fbcb 0x562833cc5050 0x7f9a1c19c1c1 0x562833cc50aa
+#	0x7f9a1d7230af	runtime.allocg+0x1f		../../../src/libgo/go/runtime/stubs.go:514
+#	0x7f9a1d35058b	runtime.malg+0x4b		../../../src/libgo/runtime/proc.c:1349
+#	0x7f9a1d72ee6d	runtime.mpreinit+0x9d		../../../src/libgo/go/runtime/os_gccgo.go:17
+#	0x7f9a1d72ee6d	runtime.mcommoninit+0x9d	../../../src/libgo/go/runtime/proc.go:241
+#	0x7f9a1d34fbca	runtime_schedinit+0x9a		../../../src/libgo/runtime/proc.c:490
+#	0x0
+#	0x0
+#	0x0
+
+
+# runtime.MemStats
+# Alloc = 235744
+# TotalAlloc = 318688
+# Sys = 3938552
+# Lookups = 5
+# Mallocs = 2131
+# Frees = 982
+# HeapAlloc = 235744
+# HeapSys = 1048576
+# HeapIdle = 442368
+# HeapInuse = 606208
+# HeapReleased = 0
+# HeapObjects = 1149
+# Stack = 0 / 0
+# MSpan = 7680 / 16384
+# MCache = 2200 / 16384
+# BuckHashSys = 1440568
+# GCSys = 1114112
+# OtherSys = 302528
+# NextGC = 402960
+# PauseNs = [623776 550442 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]
+# NumGC = 2
+# DebugGC = false

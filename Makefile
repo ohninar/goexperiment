@@ -15,14 +15,8 @@ build-go18-randmat-seq:
 build-go18-outer-par:
 	$(GO18) build -o target/outer/expertpar/maingo18bin target/outer/expertpar/main.go
 
-build-go18-outer-par-profile:
-	$(GO18) build -o target/outer/expertparprofile/maingo18binprofile target/outer/expertparprofile/main.go
-
 build-go18-outer-seq:
 	$(GO18) build -o target/outer/expertseq/maingo18bin target/outer/expertseq/main.go
-
-build-go18-outer-seq-profile:
-	$(GO18) build -o target/outer/expertseqprofile/maingo18binprofile target/outer/expertseqprofile/main.go
 
 build-go18-product-par:
 	$(GO18) build -o target/product/expertpar/maingo18bin target/product/expertpar/main.go
@@ -44,6 +38,69 @@ build-go18-winnow-seq:
 
 all-build-go18: build-go18-randmat-par build-go18-randmat-seq build-go18-outer-par build-go18-outer-seq build-go18-product-par build-go18-product-seq build-go18-winnow-par build-go18-winnow-seq
 
+build-go18-randmat-par-profile:
+	$(GO18) build -o target/randmat/expertpar/maingo18binprofile target/randmat/expertpar/main.go
+
+build-go18-randmat-seq-profile:
+	$(GO18) build -o target/randmat/expertseq/maingo18binprofile target/randmat/expertseq/main.go
+
+build-go18-outer-par-profile:
+	$(GO18) build -o target/outer/expertpar/maingo18binprofile target/outer/expertpar/main.go
+
+build-go18-outer-seq-profile:
+	$(GO18) build -o target/outer/expertseq/maingo18binprofile target/outer/expertseq/main.go
+
+build-go18-product-par-profile:
+	$(GO18) build -o target/product/expertpar/maingo18binprofile target/product/expertpar/main.go
+
+build-go18-product-seq-profile:
+	$(GO18) build -o target/product/expertseq/maingo18binprofile target/product/expertseq/main.go
+
+build-go18-thresh-par-profile:
+	$(GO18) build -o target/thresh/expertpar/maingo18binprofile target/thresh/expertpar/main.go
+
+build-go18-thresh-seq-profile:
+	$(GO18) build -o target/thresh/expertseq/maingo18binprofile target/thresh/expertseq/main.go
+
+build-go18-winnow-par-profile:
+	$(GO18) build -o target/winnow/expertpar/maingo18binprofile target/winnow/expertpar/main.go
+
+build-go18-winnow-seq-profile:
+	$(GO18) build -o target/winnow/expertseq/maingo18binprofile target/winnow/expertseq/main.go
+
+all-build-go18-profile: build-go18-randmat-par-profile build-go18-randmat-seq-profile build-go18-outer-par-profile build-go18-outer-seq-profile build-go18-product-par-profile build-go18-product-seq-profile build-go18-winnow-par-profile build-go18-winnow-seq-profile build-go18-thresh-par-profile build-go18-thresh-seq-profile
+
+run-go18-randmat-par-profile:
+	echo "10 9 8" | ./target/randmat/expertpar/maingo18binprofile
+
+run-go18-randmat-seq-profile:
+	echo "10 9 8" | ./target/randmat/expertseq/maingo18binprofile
+
+run-go18-outer-par-profile:
+	./target/outer/expertpar/maingo18binprofile < target/outer/expertpar/main.in
+
+run-go18-outer-seq-profile:
+	./target/outer/expertseq/maingo18binprofile < target/outer/expertseq/main.in
+
+run-go18-product-par-profile:
+	./target/product/expertpar/maingo18binprofile < target/product/expertpar/main.in
+
+run-go18-product-seq-profile:
+	./target/product/expertseq/maingo18binprofile < target/product/expertseq/main.in
+
+run-go18-thresh-par-profile:
+	./target/thresh/expertpar/maingo18binprofile < target/thresh/expertpar/main.in
+
+run-go18-thresh-seq-profile:
+	./target/thresh/expertseq/maingo18binprofile < target/thresh/expertseq/main.in
+
+run-go18-winnow-par-profile:
+	./target/winnow/expertpar/maingo18binprofile < target/winnow/expertpar/main.in
+
+run-go18-winnow-seq-profile:
+	./target/winnow/expertseq/maingo18binprofile < target/winnow/expertseq/main.in
+
+all-run-go18-profile: run-go18-randmat-par-profile run-go18-randmat-seq-profile run-go18-outer-par-profile run-go18-outer-seq-profile run-go18-product-par-profile run-go18-product-seq-profile run-go18-winnow-par-profile run-go18-winnow-seq-profile run-go18-thresh-par-profile run-go18-thresh-seq-profile
 
 benchmark-go18-randmat-par:
 	$(BENCHMARK) --bin='target/randmat/expertpar/maingo18bin' --generations=$(GENERATIONS)
@@ -77,8 +134,6 @@ benchmark-go18-winnow-seq:
 
 all-benchmark-go18: benchmark-go18-randmat-par benchmark-go18-randmat-seq benchmark-go18-outer-par benchmark-go18-outer-seq benchmark-go18-product-par benchmark-go18-product-seq benchmark-go18-winnow-par benchmark-go18-winnow-seq
 
-
-
 build-gccgo7-randmat-par:
 	$(GCCGO7) target/randmat/expertpar/main.go -o target/randmat/expertpar/maingccgo7bin
 
@@ -87,9 +142,6 @@ build-gccgo7-randmat-seq:
 
 build-gccgo7-outer-par:
 	$(GCCGO7) target/outer/expertpar/main.go -o target/outer/expertpar/maingccgo7bin
-
-build-gccgo7-outer-par-profile:
-	$(GCCGO7) target/outer/expertparprofile/main.go -o target/outer/expertparprofile/maingccgo7binprofile
 
 build-gccgo7-outer-seq:
 	$(GCCGO7) target/outer/expertseq/main.go -o target/outer/expertseq/maingccgo7bin
@@ -149,7 +201,6 @@ benchmark-gccgo7-winnow-seq:
 
 all-benchmark-go18: benchmark-gccgo7-randmat-par benchmark-gccgo7-randmat-seq benchmark-gccgo7-outer-par benchmark-gccgo7-outer-seq benchmark-gccgo7-product-par benchmark-gccgo7-product-seq benchmark-gccgo7-winnow-par benchmark-gccgo7-winnow-seq
 
-
 build-gccgo7opt-randmat-par:
 	$(GCCGO7) -O2 -O3 -fgo-optimize-allocs target/randmat/expertpar/main.go -o target/randmat/expertpar/maingccgo7optbin
 
@@ -181,6 +232,70 @@ build-gccgo7opt-winnow-seq:
 	$(GCCGO7) -O2 -O3 -fgo-optimize-allocs target/winnow/expertseq/main.go -o target/winnow/expertseq/maingccgo7optbin
 
 all-build-gccgo7opt: build-gccgo7opt-randmat-par build-gccgo7opt-randmat-seq build-gccgo7opt-outer-par build-gccgo7opt-outer-seq build-gccgo7opt-product-par build-gccgo7opt-product-seq build-gccgo7opt-winnow-par build-gccgo7opt-winnow-seq
+
+build-gccgo7opt-randmat-par-profile:
+	$(GCCGO7) -O2 -O3 -fgo-optimize-allocs target/randmat/expertpar/main.go -o target/randmat/expertpar/maingccgo7optbinprofile
+
+build-gccgo7opt-randmat-seq-profile:
+	$(GCCGO7) -O2 -O3 -fgo-optimize-allocs target/randmat/expertseq/main.go -o target/randmat/expertseq/maingccgo7optbinprofile
+
+build-gccgo7opt-outer-par-profile:
+	$(GCCGO7) -O2 -O3 -fgo-optimize-allocs target/outer/expertpar/main.go -o target/outer/expertpar/maingccgo7optbinprofile
+
+build-gccgo7opt-outer-seq-profile:
+	$(GCCGO7) -O2 -O3 -fgo-optimize-allocs target/outer/expertseq/main.go -o target/outer/expertseq/maingccgo7optbinprofile
+
+build-gccgo7opt-product-par-profile:
+	$(GCCGO7) -O2 -O3 -fgo-optimize-allocs target/product/expertpar/main.go -o target/product/expertpar/maingccgo7optbinprofile
+
+build-gccgo7opt-product-seq-profile:
+	$(GCCGO7) -O2 -O3 -fgo-optimize-allocs target/product/expertseq/main.go -o target/product/expertseq/maingccgo7optbinprofile
+
+build-gccgo7opt-thresh-par-profile:
+	$(GCCGO7) -O2 -O3 -fgo-optimize-allocs target/thresh/expertpar/main.go -o target/thresh/expertpar/maingccgo7optbinprofile
+
+build-gccgo7opt-thresh-seq-profile:
+	$(GCCGO7) -O2 -O3 -fgo-optimize-allocs target/thresh/expertseq/main.go -o target/thresh/expertseq/maingccgo7optbinprofile
+
+build-gccgo7opt-winnow-par-profile:
+	$(GCCGO7) -O2 -O3 -fgo-optimize-allocs target/winnow/expertpar/main.go -o target/winnow/expertpar/maingccgo7optbinprofile
+
+build-gccgo7opt-winnow-seq-profile:
+	$(GCCGO7) -O2 -O3 -fgo-optimize-allocs target/winnow/expertseq/main.go -o target/winnow/expertseq/maingccgo7optbinprofile
+
+all-build-gccgo7opt-profile: build-gccgo7opt-randmat-par-profile build-gccgo7opt-randmat-seq-profile build-gccgo7opt-outer-par-profile build-gccgo7opt-outer-seq-profile build-gccgo7opt-product-par-profile build-gccgo7opt-product-seq-profile build-gccgo7opt-winnow-par-profile build-gccgo7opt-winnow-seq-profile build-gccgo7opt-thresh-par-profile build-gccgo7opt-thresh-seq-profile
+
+run-gccgo7opt-randmat-par-profile:
+	echo "10 9 8" | ./target/randmat/expertpar/maingccgo7optbinprofile
+
+run-gccgo7opt-randmat-seq-profile:
+	echo "10 9 8" | ./target/randmat/expertseq/maingccgo7optbinprofile
+
+run-gccgo7opt-outer-par-profile:
+	./target/outer/expertpar/maingccgo7optbinprofile < target/outer/expertpar/main.in
+
+run-gccgo7opt-outer-seq-profile:
+	./target/outer/expertseq/maingccgo7optbinprofile < target/outer/expertseq/main.in
+
+run-gccgo7opt-product-par-profile:
+	./target/product/expertpar/maingccgo7optbinprofile < target/product/expertpar/main.in
+
+run-gccgo7opt-product-seq-profile:
+	./target/product/expertseq/maingccgo7optbinprofile < target/product/expertseq/main.in
+
+run-gccgo7opt-thresh-par-profile:
+	./target/thresh/expertpar/maingccgo7optbinprofile < target/thresh/expertpar/main.in
+
+run-gccgo7opt-thresh-seq-profile:
+	./target/thresh/expertseq/maingccgo7optbinprofile < target/thresh/expertseq/main.in
+
+run-gccgo7opt-winnow-par-profile:
+	./target/winnow/expertpar/maingccgo7optbinprofile < target/winnow/expertpar/main.in
+
+run-gccgo7opt-winnow-seq-profile:
+	./target/winnow/expertseq/maingccgo7optbinprofile < target/winnow/expertseq/main.in
+
+all-run-gccgo7opt-profile: run-gccgo7opt-randmat-par-profile run-gccgo7opt-randmat-seq-profile run-gccgo7opt-outer-par-profile run-gccgo7opt-outer-seq-profile run-gccgo7opt-product-par-profile run-gccgo7opt-product-seq-profile run-gccgo7opt-winnow-par-profile run-gccgo7opt-winnow-seq-profile run-gccgo7opt-thresh-par-profile run-gccgo7opt-thresh-seq-profile
 
 benchmark-gccgo7opt-randmat-par:
 	$(BENCHMARK) --bin='target/randmat/expertpar/maingccgo7optbin' --generations=$(GENERATIONS)
